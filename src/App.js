@@ -10,7 +10,7 @@ function App() {
   return (
     <ApolloProvider client={client} className="container-fluid">
       <div className="App">
-        <Chat emitter="Jacky" />
+        <Chat />
       </div>
     </ApolloProvider>
   );
