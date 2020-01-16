@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={client} className="container-fluid">
       <div className="App">
         <Chat emitter="Jacky" />
       </div>

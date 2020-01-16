@@ -16,8 +16,10 @@ export function Contacts() {
   if (loading) return <p>Loading...</p>
 
   return (
-    <div className="contacts-container">
-      {data.getUsers.map(contact => (<div key={contact.id}>{ contact.username }</div>))}
+    <div className="contacts-container col-3">
+      <div className="list-group">
+        {data.getUsers.map(contact => (<div className="list-group-item" key={contact.id}>{ contact.username }</div>))}
+      </div>
     </div>
   );
 }
