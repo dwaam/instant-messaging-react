@@ -3,11 +3,12 @@ import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
 import './conversation.scss';
+import { ComposeMessage } from './ComposeMessage';
 
 export function Conversation(props) {
 
   const GET_CONVERSATION = gql`
-    query GetMessagesBetween($emitterId: ID!, $receiverId: ID!){
+    query GetMessagesBetween($emitterId: ID!, $receiverId: ID!) {
       getMessagesBetween(emitter: $emitterId, receiver: $receiverId) {
         id
         emitter {
@@ -31,10 +32,11 @@ export function Conversation(props) {
   return (
     <div className="conversation-container col-9">
       {data.getMessagesBetween.map(message => (
-        <div className={getMessagePosition(message)}>
-          <div key={message.id}>{ message.content }</div>
+        <div key={message.id} className={getMessagePosition(message)}>
+          <div>{message.content}</div>
         </div>
       ))}
+      <ComposeMessage emitterId={props.emitterId} receiverId={props.receiverId} />
     </div>
   );
 }

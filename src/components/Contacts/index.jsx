@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
+import './contacts.scss';
+
 export function Contacts() {
   const GET_USERS = gql`
     {
@@ -18,7 +20,8 @@ export function Contacts() {
   return (
     <div className="contacts-container col-3">
       <div className="list-group">
-        {data.getUsers.map(contact => (<div className="list-group-item" key={contact.id}>{ contact.username }</div>))}
+        <div className="list-group-item list-group-item-dark">Discussions</div>
+        {data.getUsers.map(contact => (<div className="contact list-group-item" key={contact.id}>{ contact.username }</div>))}
       </div>
     </div>
   );
